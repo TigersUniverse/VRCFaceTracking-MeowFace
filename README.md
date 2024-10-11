@@ -4,7 +4,7 @@
 
 ## Installing **MeowFace Tracking Module** for **VRCFaceTracking**.
 
-[Latest Release](https://github.com/regzo2/VRCFaceTracking-MeowFace/releases)
+[Latest Release](https://github.com/TigersUniverse/VRCFaceTracking-MeowFace/releases)
 
 * VRCFaceTracking Module Registry
   * Install **MeowFace Tracking Module** by looking it up in the **Module Registry** and installing directly!

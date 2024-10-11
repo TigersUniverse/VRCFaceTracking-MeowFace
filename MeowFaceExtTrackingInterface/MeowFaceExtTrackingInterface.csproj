@@ -1,11 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFrameworks>net7.0;netstandard2.1;net481</TargetFrameworks>
+    <LangVersion>11</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,11 +22,49 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+    <Reference Include="Microsoft.Extensions.Logging">
+      <HintPath>$(VRCFaceTrackingBuild)\net481\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>$(VRCFaceTrackingBuild)\net481\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>$(VRCFaceTrackingBuild)\net481\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>$(VRCFaceTrackingBuild)\net481\System.Memory.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net481'">
+    <Reference Include="VRCFaceTracking.Core">
+      <HintPath>$(VRCFaceTrackingBuild)\net481\VRCFaceTracking.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCFaceTracking.Core">
+      <HintPath>$(VRCFaceTrackingBuild)\net481\VRCFaceTracking.SDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+    <Reference Include="VRCFaceTracking.Core">
+      <HintPath>$(VRCFaceTrackingBuild)\net7.0\VRCFaceTracking.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCFaceTracking.SDK">
+      <HintPath>$(VRCFaceTrackingBuild)\net7.0\VRCFaceTracking.SDK.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <Reference Include="VRCFaceTracking.Core">
+      <HintPath>$(VRCFaceTrackingBuild)\netstandard2.1\VRCFaceTracking.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRCFaceTracking.SDK">
+      <HintPath>$(VRCFaceTrackingBuild)\netstandard2.1\VRCFaceTracking.SDK.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\VRCFaceTracking\VRCFaceTracking.Core\VRCFaceTracking.Core.csproj" />
+    <Content Include="MeowFaceExtTrackingInterface.csproj.user" />
   </ItemGroup>
 
 </Project>
